@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "author": "Patrick Archbold",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-pi-pico", "id": "pico", "top": 6.45, "left": -63.6, "attrs": {"env": "arduino-community"} },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 255.8,
+      "left": -38.4,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 81.6,
+      "left": 47.45,
+      "rotate": 90,
+      "attrs": { "value": "1000" }
+    }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "pico:GP21", "btn1:1.r", "green", [ "h0" ] ],
+    [ "pico:GND.6", "btn1:2.r", "black", [ "h30", "v153.6" ] ],
+    [ "r1:1", "pico:3V3", "green", [ "h0" ] ],
+    [ "r1:2", "pico:GP21", "green", [ "h0", "v27.6" ] ]
+  ],
+  "dependencies": {}
+}
